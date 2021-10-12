@@ -19,7 +19,7 @@
     </div>
 
     <br>
-    <a class="btn btn-warning font-weight-bold" href="/">+Tambah Barang</a>
+    <a class="btn btn-warning font-weight-bold" href="/barang/tambah">+Tambah Barang</a>
     <p>
 
     </p>
@@ -40,11 +40,10 @@
             <td th:text="${iterationStatus.count}"></td>
             <td th:text="${barang.namaBarang}"></td>
             <td th:text="${barang.hargaBarang}"></td>
-            <td th:text="${barang.tipe}"></td>
+            <td th:text="${barang.tipe.nama}"></td>
             <td th:text="${barang.stok}"></td>
             <td>
-                <a class="btn btn-info" th:href="@{/}">Lihat</a>
-                <br>
+                <a class="btn btn-info" th:href="@{/barang/(id=${barang.id})}">Lihat</a>
                 <a class="btn btn-warning" th:href="@{/}">Ubah</a>
                 <a class="btn btn-danger" th:href="@{/}">Hapus</a>
             </td>

@@ -17,11 +17,20 @@ public class BarangServiceImpl implements BarangService {
 
     @Override
     public void addBarang(BarangModel barang) {
-
+        barangDB.save(barang);
     }
 
     @Override
     public List<BarangModel> getBarangList() {
         return barangDB.findAll();
+    }
+
+    @Override
+    public BarangModel getBarangById(Long id) {
+        Optional<BarangModel> barang = barangDB.findById(id);
+        if (barang.isPresent()) {
+            return barang.get();
+        }
+        return null;
     }
 }

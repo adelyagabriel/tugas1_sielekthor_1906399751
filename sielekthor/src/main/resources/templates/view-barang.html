@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title>SIELEKTHOR</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+</head>
+<style>
+    .layout{
+        text-align: left;
+        padding-top: 50px;
+        padding-left: 450px;
+        padding-right: 450px;
+        padding-bottom: 50px;
+    }
+
+    .to-the-right{
+        text-align: center;
+    }
+</style>
+<body>
+<nav th:replace="fragments/fragment :: navbar"></nav>
+<div class="layout">
+        <div class="container">
+            <div class="card m-4 p-4 shadow p-3 mb-5 bg-white rounded">
+                <div class="card-body">
+                    <div class="justify-content-center">
+                        <h2 class="text-center">Detail Barang</h2>
+                        <br>
+                        <table class="table table-borderless">
+                            <tbody>
+                            <tr>
+                                <td th:text="'Nama Barang' "></td>
+                                <td th:text="': '+ ${barang.namaBarang}"></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td th:text="'Kode Barang' "></td>
+                                <td th:text="': '+ ${barang.kodeBarang}"></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td th:text="'Merk Barang' "></td>
+                                <td th:text="': '+ ${barang.merkBarang}"></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td th:text="'Stok Barang' "></td>
+                                <td th:text="': '+ ${barang.stok}"></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td th:text="'Garansi Toko' "></td>
+                                <td th:text="': '+ ${barang.jumlahGaransi}"></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td th:text="'Deskripsi' "></td>
+                                <td th:text="': '+ ${barang.deskripsiBarang}"></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td th:text="'Tipe Barang' "></td>
+                                <td th:text="': '+ ${barang.tipe.nama}"></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td th:text="'Harga' "></td>
+                                <td th:text="': '+ ${barang.hargaBarang}"></td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <!--                <div class="col"->-->
+                        <!--                    <div th:if="*{listPenjaga.size() != 0}">-->
+                        <!--                        <form th:action= "@{/penjaga/delete}" th:object="${bioskop}" method="POST">-->
+                        <!--                            <input type="hidden" th:field="*{noBioskop}" />-->
+                        <!--                            <table class="table">-->
+                        <!--                                <thead>-->
+                        <!--                                <tr>-->
+                        <!--                                    <th>No</th>-->
+                        <!--                                    <th>No Penjaga</th>-->
+                        <!--                                    <th>Nama</th>-->
+                        <!--                                    <th>Jenis Kelamin</th>-->
+                        <!--                                    <th></th>-->
+                        <!--                                    <th>Hapus</th>-->
+                        <!--                                </tr>-->
+                        <!--                                </thead>-->
+                        <!--                                <tbody>-->
+                        <!--                                <tr th:each="penjaga, iterationStatus : ${listPenjaga}"-->
+                        <!--                                    th:style="${iterationStatus.even} ? 'font-weight:bold;'">-->
+                        <!--                                    <td th:text="${iterationStatus.count}"></td>-->
+                        <!--                                    <td th:text="${penjaga.noPenjaga}"></td>-->
+                        <!--                                    <td th:text="${penjaga.namaPenjaga}"></td>-->
+                        <!--                                    <td th:if="${penjaga.jenisKelamin} == 1">Laki-Laki</td>-->
+                        <!--                                    <td th:if="${penjaga.jenisKelamin} == 0">Perempuan</td>-->
+                        <!--                                    <td>-->
+                        <!--                                        <a class="btn btn-primary" th:href="@{/penjaga/update/} + ${penjaga.noPenjaga} + '/from/' + ${bioskop.noBioskop}">Update Penjaga</a>-->
+                        <!--                                    </td>-->
+                        <!--                                    <td>-->
+                        <!--                                        <input class="form-check-input" type="checkbox"-->
+                        <!--                                               th:field="*{listPenjaga}" th:value="${penjaga.noPenjaga}"-->
+                        <!--                                               id="flexCheckDefault">-->
+                        <!--                                        &lt;!&ndash;                                        <a class="btn btn-primary" th:href="@{/penjaga/delete/} + ${penjaga.noPenjaga}">Delete penjaga</a>&ndash;&gt;-->
+                        <!--                                    </td>-->
+                        <!--                                </tr>-->
+                        <!--                                </tbody>-->
+                        <!--                            </table>-->
+
+                        <!--                            <input type="submit" value="Delete yang dipilih" class="btn btn-danger">-->
+                        <!--                        </form>-->
+                        <!--                    </div>-->
+
+                        <!--                    <div th:unless = "*{listPenjaga.size() != 0}">-->
+                        <!--                        <h2 th:text = "'Tidak ada penjaga'"></h2>-->
+                        <!--                    </div>-->
+
+
+                        <!--                </div>-->
+
+                        <!--                <table class="table">-->
+                        <!--                    <thead>-->
+                        <!--                    <tr>-->
+                        <!--                        <th>No</th>-->
+                        <!--                        <th>No Film</th>-->
+                        <!--                        <th>Nama Film</th>-->
+                        <!--                        <th>Deskripsi</th>-->
+                        <!--                        <th>Sedang Tayang</th>-->
+                        <!--                    </tr>-->
+                        <!--                    </thead>-->
+                        <!--                    <tbody>-->
+                        <!--                    <tr th:each="film, iterationStatus : ${listFilm}"-->
+                        <!--                        th:style="${iterationStatus.even} ? 'font-weight:bold;'">-->
+                        <!--                        <td th:text="${iterationStatus.count}"></td>-->
+                        <!--                        <td th:text="${film.noFilm}"></td>-->
+                        <!--                        <td th:text="${film.namaFilm}"></td>-->
+                        <!--                        <td th:text="${film.deskripsiFilm}"></td>-->
+                        <!--                        <td th:if="${film.isDisplaying} == 1">TIDAK</td>-->
+                        <!--                        <td th:if="${film.isDisplaying} == 0">YA</td>-->
+
+                        <!--                    </tr>-->
+                        <!--                    </tbody>-->
+                        <!--                </table>-->
+                        <div>
+                            <a class="btn btn-outline-danger" href="/barang">Kembali</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+
+</html>
