@@ -44,7 +44,7 @@
             <td th:text="${barang.stok}"></td>
             <td>
                 <a class="btn btn-info" th:href="@{/barang/(id=${barang.id})}">Lihat</a>
-                <a class="btn btn-warning" th:href="@{/}">Ubah</a>
+                <a class="btn btn-warning" th:href="@{/barang/ubah/} + ${barang.id}">Ubah</a>
                 <a class="btn btn-danger" th:href="@{/}">Hapus</a>
             </td>
         </tr>

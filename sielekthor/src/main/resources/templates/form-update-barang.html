@@ -31,19 +31,19 @@
         <div class="card m-4 p-4">
             <div class="card-body">
                 <div class="justify-content-center">
-                    <h2 class="text-center"> Form Tambah Barang</h2>
+                    <h2 class="text-center"> Form Ubah Barang</h2>
                     <br>
-                    <form th:action="@{/barang/tambah}" th:object="${barang}" method="POST">
+                    <form th:action="@{/barang/ubah}" th:object="${barang}" method="POST">
                         Nama Barang: <br>
                         <input required class="form-control" type="text" name="namaBarang" th:value="${barang.namaBarang}" />
                         <br>
 
                         Kode Barang: <br>
-                        <input required class="form-control" type="text" name="kodeBarang" th:value="${barang.kodeBarang}"/>
+                        <input required disabled class="form-control" type="text" name="kodeBarang" th:value="${barang.kodeBarang}"/>
                         <br>
 
                         Merk Barang: <br>
-                        <input required class="form-control" type="text" name="merkBarang" th:value="${barang.merkBarang}"/>
+                        <input required disabled class="form-control" type="text" name="merkBarang" th:value="${barang.merkBarang}"/>
                         <br>
 
                         Stok Barang: <br>
@@ -59,7 +59,7 @@
                         <br>
 
                         Tipe Barang : <br>
-                        <select class="form-control" name="tipe.id">
+                        <select class="form-control" name="tipe.id" th:field="${barang.tipe}" disabled>
                             <option th:each="tipe : ${listTipe}"
                                     th:value="${tipe.id}"
                                     th:text="${tipe.nama}">

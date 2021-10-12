@@ -67,4 +67,25 @@ public class BarangController {
         return "view-barang";
     }
 
+    //Mengubah detail barang
+    @GetMapping("/barang/ubah/{idBarang}")
+    public String updateBarangForm(
+            @PathVariable Long idBarang,
+            Model model
+    ){
+        BarangModel barang = barangService.getBarangById(idBarang);
+        model.addAttribute( "barang", barang);
+        return"form-update-barang" ;
+    }
+
+    @PostMapping("/barang/ubah")
+    public String updateBarangSubmit(
+            @ModelAttribute BarangModel barang,
+            Model model
+    ){
+        barangService.updateBarang(barang);
+        model.addAttribute( "kodeBarang", barang.getKodeBarang());
+        return "yey-update-barang";
+    }
+
 }

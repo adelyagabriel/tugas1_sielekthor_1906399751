@@ -12,6 +12,7 @@ import java.util.Optional;
 @Service
 @Transactional
 public class BarangServiceImpl implements BarangService {
+
     @Autowired
     BarangDB barangDB;
 
@@ -32,5 +33,10 @@ public class BarangServiceImpl implements BarangService {
             return barang.get();
         }
         return null;
+    }
+
+    @Override
+    public void updateBarang(BarangModel barang) {
+        barangDB.save(barang);
     }
 }
