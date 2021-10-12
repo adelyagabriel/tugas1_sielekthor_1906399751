@@ -5,4 +5,5 @@ import java.util.List;
 
 public interface BarangService {
     void addBarang(BarangModel barang);
+    List<BarangModel> getBarangList();
 }
