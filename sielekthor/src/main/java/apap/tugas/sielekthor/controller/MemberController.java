@@ -45,4 +45,26 @@ public class MemberController {
         model.addAttribute( "namaMember", member.getNamaMember());
         return "yey-add-member";
     }
+
+    //Mengubah detail member
+    @GetMapping("/member/ubah/{idMember}")
+    public String updateMemberForm(
+            @PathVariable Long idMember,
+            Model model
+    ){
+        MemberModel member = memberService.getMemberById(idMember);
+        model.addAttribute( "member", member);
+        return"form-update-member" ;
+    }
+
+    //Post mapping berhasil ubah member
+    @PostMapping("/member/ubah")
+    public String updateMemberSubmit(
+            @ModelAttribute MemberModel member,
+            Model model
+    ){
+        memberService.updateMember(member);
+        model.addAttribute( "namaMember", member.getNamaMember());
+        return "yey-update-member";
+    }
 }

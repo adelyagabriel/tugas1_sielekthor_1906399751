@@ -18,6 +18,10 @@ public class MemberServiceImpl implements MemberService {
     //Get Member by their id
     @Override
     public MemberModel getMemberById(Long id) {
+        Optional<MemberModel> member = memberDB.findById(id);
+        if (member.isPresent()) {
+            return member.get();
+        }
         return null;
     }
 
@@ -31,5 +35,10 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public List<MemberModel> getMemberList() {
         return memberDB.findAll();
+    }
+
+    @Override
+    public void updateMember(MemberModel member) {
+        memberDB.save(member);
     }
 }

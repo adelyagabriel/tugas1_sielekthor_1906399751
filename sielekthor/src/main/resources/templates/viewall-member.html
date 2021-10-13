@@ -43,7 +43,7 @@
             <td th:text="${member.tanggalPendaftaran}"></td>
             <td th:text="${member.jenisKelamin}==0? 'Laki-Laki':'Perempuan'"></td>
             <td>
-                <a class="btn btn-info align-items-center" th:href="@{/member}">Update</a>
+                <a class="btn btn-info align-items-center" th:href="@{/member/ubah/} + ${member.id}">Update</a>
             </td>
         </tr>
         </tbody>

@@ -8,4 +8,5 @@ public interface MemberService {
     MemberModel getMemberById(Long id);
     void addMember(MemberModel member);
     List<MemberModel> getMemberList();
+    void updateMember(MemberModel member);
 }
