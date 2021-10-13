@@ -34,6 +34,10 @@
                     <h2 class="text-center"> Form Ubah Barang</h2>
                     <br>
                     <form th:action="@{/barang/ubah}" th:object="${barang}" method="POST">
+                        <input type="hidden" th:field="*{id}"/>
+                        <input type="hidden" th:field="*{kodeBarang}"/>
+                        <input type="hidden" th:field="*{merkBarang}" />
+                        <input type="hidden" th:field="*{tipe.id}" />
                         Nama Barang: <br>
                         <input required class="form-control" type="text" name="namaBarang" th:value="${barang.namaBarang}" />
                         <br>
