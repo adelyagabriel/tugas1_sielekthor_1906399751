@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title>SIELEKTHOR</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+</head>
+<body>
+<nav th:replace="fragments/fragment :: navbar"></nav>
+
+<div class="container">
+    <br>
+    <br>
+    <div class="justify-content-center">
+        <h2 class="text-center">Daftar Pembelian</h2>
+    </div>
+
+    <br>
+    <a class="btn btn-warning font-weight-bold" href="/pembelian">+Tambah Pembelian</a>
+    <p>
+
+    </p>
+    <table class="table">
+        <thead class="bg-warning">
+        <tr>
+            <th class="align-middle">No</th>
+            <th class="align-middle">No Invoice</th>
+            <th class="align-middle">Member</th>
+            <th class="align-middle">Jumlah Barang</th>
+            <th class="align-middle">Tanggal Pembelian</th>
+            <th class="align-middle">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="pembelian, iterationStatus : ${listPembelian}"
+            th:style="${iterationStatus.even} ? 'font-weight:bold;'">
+            <td th:text="${iterationStatus.count}"></td>
+            <td th:text="${pembelian.noInvoice}"></td>
+            <td th:text="${pembelian.member}"></td>
+            <td th:text="${pembelian.listBarang.size()}"></td>
+            <td th:text="${pembelian.tanggalPembelian}"></td>
+            <td>
+                <a class="btn btn-info" th:href="@{/barang/(id=${barang.id})}">Lihat</a>
+                <a class="btn btn-danger" th:href="@{/}">Hapus</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="container">
+    </div>
+    <!--    <div th:unless = "*{listBioskop.size() != 0}">-->
+    <!--        <h2 th:text = "'Tidak ada Bioskop'"></h2>-->
+    <!--    </div>-->
+</div>
+
+</body>
+</html>
