@@ -8,6 +8,13 @@
     <object th:include="fragments/fragment :: css" th:remove="tag"></object>
     <object th:include="fragments/fragment :: js" th:remove="tag"></object>
 </head>
+<!--<style>-->
+<!--    .table td {-->
+<!--        text-align: center;-->
+<!--    }-->
+
+<!--</style>-->
+
 <body>
 <nav th:replace="fragments/fragment :: navbar"></nav>
 
@@ -39,11 +46,11 @@
             th:style="${iterationStatus.even} ? 'font-weight:bold;'">
             <td th:text="${iterationStatus.count}"></td>
             <td th:text="${pembelian.noInvoice}"></td>
-            <td th:text="${pembelian.member}"></td>
-            <td th:text="${pembelian.listBarang.size()}"></td>
-            <td th:text="${pembelian.tanggalPembelian}"></td>
+            <td th:text="${pembelian.member.namaMember}"></td>
+            <td th:text="${pembelian.listBarang.size}"></td>
+            <td th:text="${#dates.format(pembelian.tanggalPembelian, 'dd MMM yyyy')}"></td>
             <td>
-                <a class="btn btn-info" th:href="@{/barang/(id=${barang.id})}">Lihat</a>
+                <a class="btn btn-info" th:href="@{/pembelian}">Lihat</a>
                 <a class="btn btn-danger" th:href="@{/}">Hapus</a>
             </td>
         </tr>
