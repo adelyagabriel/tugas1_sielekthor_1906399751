@@ -34,6 +34,7 @@
         <ul class="navbar-nav mr-auto">
             <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/barang') ? 'font-weight-bold':''}"><a class="nav-item nav-link active text-black-50" th:href="@{/barang}"><span>Barang</span></a></li>
             <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/pembelian') ? 'font-weight-bold':''}"><a class="nav-item nav-link active text-black-50" th:href="@{/pembelian}"><span>Pembelian</span></a></li>
+            <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/member') ? 'font-weight-bold':''}"><a class="nav-item nav-link active text-black-50" th:href="@{/member}"><span>Member</span></a></li>
         </ul>
 <!--        <form class="form-inline my-2 my-lg-0" th:action="@{/bioskop/view}" method="GET">-->
 <!--            <input class="form-control mr-sm-2" type="search"-->

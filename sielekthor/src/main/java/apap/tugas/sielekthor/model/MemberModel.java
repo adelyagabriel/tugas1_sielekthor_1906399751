@@ -35,7 +35,7 @@ public class MemberModel implements Serializable {
     private String namaMember;
 
     @NotNull
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     @Column(nullable = false)
     private Date tanggalPendaftaran;
 
