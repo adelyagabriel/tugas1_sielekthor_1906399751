@@ -1,6 +1,9 @@
 package apap.tugas.sielekthor.controller;
 
+import apap.tugas.sielekthor.model.BarangModel;
+import apap.tugas.sielekthor.model.PembelianBarangModel;
 import apap.tugas.sielekthor.model.PembelianModel;
+import apap.tugas.sielekthor.repository.PembelianDB;
 import apap.tugas.sielekthor.service.PembelianService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -28,6 +31,22 @@ public class PembelianController {
         return "viewall-pembelian" ;
     }
 
+    //Menampilkan detail pembelian
+    @GetMapping("/pembelian/{idPembelian}")
+    public String viewDetailPembelian(
+            @PathVariable Long idPembelian,
+            Model model
+    ) {
+        PembelianModel pembelian = pembelianService.getPembelianById(idPembelian);
+        List<PembelianBarangModel> listPembelianBarang = pembelian.getListPembelianBarang();
 
+        if(pembelian == null){
+            model.addAttribute("pembelian", pembelian);
+            return "error-view-pembelian";
+        }
+        model.addAttribute( "pembelian", pembelian);
+        model.addAttribute( "listPembelianBarang", listPembelianBarang);
+        return "view-pembelian";
+    }
 }
 

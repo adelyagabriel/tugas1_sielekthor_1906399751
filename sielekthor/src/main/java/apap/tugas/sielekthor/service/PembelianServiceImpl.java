@@ -1,5 +1,6 @@
 package apap.tugas.sielekthor.service;
 
+import apap.tugas.sielekthor.model.BarangModel;
 import apap.tugas.sielekthor.model.PembelianModel;
 import apap.tugas.sielekthor.repository.PembelianDB;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,10 @@ public class PembelianServiceImpl implements PembelianService {
 
     @Override
     public PembelianModel getPembelianById(Long id) {
+        Optional<PembelianModel> pembelian = pembelianDB.findById(id);
+        if (pembelian.isPresent()) {
+            return pembelian.get();
+        }
         return null;
     }
 }
