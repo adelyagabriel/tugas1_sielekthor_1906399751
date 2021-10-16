@@ -50,13 +50,13 @@ public class PembelianModel implements Serializable {
     @Column(nullable = false)
     private Boolean isCash;
 
-    @ManyToMany
-    @JoinTable(
-            name = "pembelianbarang",
-            joinColumns = @JoinColumn(name = "idPembelian"),
-            inverseJoinColumns = @JoinColumn(name = "idBarang")
-    )
-    List<BarangModel> listBarang;
+//    @ManyToMany
+//    @JoinTable(
+//            name = "pembelianbarang",
+//            joinColumns = @JoinColumn(name = "idPembelian"),
+//            inverseJoinColumns = @JoinColumn(name = "idBarang")
+//    )
+//    List<BarangModel> listBarang;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "IdMember", referencedColumnName = "id", nullable = false)

@@ -67,6 +67,6 @@ public class BarangModel implements Serializable {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private TipeModel tipe;
 
-    @ManyToMany(mappedBy = "listBarang")
-    private List<PembelianModel> listPembelian;
+//    @ManyToMany(mappedBy = "listBarang")
+//    private List<PembelianModel> listPembelian;
 }

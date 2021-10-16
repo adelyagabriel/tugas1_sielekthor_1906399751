@@ -47,11 +47,11 @@
             <td th:text="${iterationStatus.count}"></td>
             <td th:text="${pembelian.noInvoice}"></td>
             <td th:text="${pembelian.member.namaMember}"></td>
-            <td th:text="${pembelian.listBarang.size}"></td>
+            <td th:text="${pembelian.listPembelianBarang.size}"></td>
             <td th:text="${#dates.format(pembelian.tanggalPembelian, 'dd MMM yyyy')}"></td>
             <td>
                 <a class="btn btn-info" th:href="@{/pembelian/} + ${pembelian.id}">Lihat</a>
-                <a class="btn btn-danger" th:href="@{/}">Hapus</a>
+                <a class="btn btn-danger" th:href="@{/pembelian/hapus}">Hapus</a>
             </td>
         </tr>
         </tbody>
