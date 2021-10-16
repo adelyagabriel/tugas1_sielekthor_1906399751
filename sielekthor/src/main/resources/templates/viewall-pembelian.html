@@ -51,7 +51,7 @@
             <td th:text="${#dates.format(pembelian.tanggalPembelian, 'dd MMM yyyy')}"></td>
             <td>
                 <a class="btn btn-info" th:href="@{/pembelian/} + ${pembelian.id}">Lihat</a>
-                <a class="btn btn-danger" th:href="@{/pembelian/hapus}">Hapus</a>
+                <a class="btn btn-danger" th:href="@{/pembelian/hapus/} + ${pembelian.id}">Hapus</a>
             </td>
         </tr>
         </tbody>

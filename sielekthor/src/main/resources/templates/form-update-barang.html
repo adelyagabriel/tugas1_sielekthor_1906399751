@@ -63,7 +63,7 @@
                         <br>
 
                         Tipe Barang : <br>
-                        <select class="form-control" name="tipe.id" th:field="${barang.tipe}" disabled>
+                        <select class="form-control" name="tipe.id" th:field="*{tipe}" disabled>
                             <option th:each="tipe : ${listTipe}"
                                     th:value="${tipe.id}"
                                     th:text="${tipe.nama}">
