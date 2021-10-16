@@ -1,6 +1,7 @@
 package apap.tugas.sielekthor.controller;
 
 import apap.tugas.sielekthor.model.BarangModel;
+import apap.tugas.sielekthor.model.TipeModel;
 import apap.tugas.sielekthor.service.BarangService;
 import apap.tugas.sielekthor.service.TipeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,6 +87,62 @@ public class BarangController {
         barangService.updateBarang(barang);
         model.addAttribute( "kodeBarang", barang.getKodeBarang());
         return "yey-update-barang";
+    }
+
+    //Buat Cari Barang
+    @RequestMapping(value="/barang/cari", method=RequestMethod.GET)
+    public String cariBarang(
+            @RequestParam(required = false, value = "idTipe") Long idTipe,
+            @RequestParam(required = false,value = "stok") Boolean stok,
+            Model model)
+    {
+        //List<MemberModel> listMember = memberService.getMemberList();
+        List<BarangModel> listBarang = new ArrayList<>();
+        List<TipeModel> listTipe = tipeService.getListTipe();
+
+        System.out.println("masuk 1");
+        boolean searched = false;
+        boolean errorPilihTipe = false;
+
+        if (idTipe != null && stok != null) {
+            System.out.println("masuk if 1");
+            listBarang = barangService.findBarang(idTipe, stok);
+            model.addAttribute("listBarang", listBarang);
+            model.addAttribute("error", errorPilihTipe);
+            searched = true;
+            model.addAttribute("searched", searched);
+            model.addAttribute("listTipe", listTipe);
+            return "cari-barang";
+        }
+
+        if (idTipe != null && stok == null){
+            System.out.println("masuk if 2");
+            listBarang = barangService.findBarang(idTipe, false);
+            model.addAttribute("listBarang", listBarang);
+            searched = true;
+            model.addAttribute("error", errorPilihTipe);
+            model.addAttribute("searched", searched);
+            model.addAttribute("listTipe", listTipe);
+            return "cari-barang";
+        }
+
+        if (idTipe == null && stok != null){
+            System.out.println("masuk if 3");
+            errorPilihTipe = true;
+            model.addAttribute("listBarang", listBarang);
+            searched = true;
+            model.addAttribute("searched", searched);
+            model.addAttribute("error", errorPilihTipe);
+            model.addAttribute("listTipe", listTipe);
+            return "cari-barang";
+        }
+
+        model.addAttribute("searched", searched);
+        model.addAttribute("error", errorPilihTipe);
+        model.addAttribute("listBarang", listBarang);
+        model.addAttribute("listTipe", listTipe);
+        return "cari-barang";
+
     }
 
 }
